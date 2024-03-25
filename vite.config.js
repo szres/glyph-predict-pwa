@@ -8,9 +8,9 @@ export default defineConfig({
 		SvelteKitPWA({
 			registerType: 'autoUpdate',
 			manifest: {
-				name: 'Svelte PWA Template',
-				short_name: 'SPWAT',
-				description: 'a svelte pwa app template',
+				name: 'Ingress Glyph Predict PWA',
+				short_name: 'IGP',
+				description: 'Ingress Glyph Predict',
 				start_url: '/',
 				background_color: '#000000',
 				theme_color: '#5ac6e6',
@@ -18,7 +18,7 @@ export default defineConfig({
 				icons: [
 					{
 						src: 'favicon.png',
-						sizes: '256x256',
+						sizes: '128x128',
 						type: 'image/png',
 						purpose: 'any maskable'
 					},

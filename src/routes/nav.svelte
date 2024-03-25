@@ -1,12 +1,24 @@
+<script>
+	export let state;
+</script>
+
 <div class="navbar bg-base-100">
 	<div class="navbar-start">
-		<a href="./"><button class="btn btn-outline btn-info btn-xs md:btn-md">Home</button></a>
+		<button class="btn btn-outline btn-info btn-xs md:btn-md" on:click={() => state.set('home')}
+			>Home</button
+		>
 	</div>
 	<div class="navbar-center">
-		<p class="btn btn-ghost text-xl">Svelte PWA Template</p>
+		{#if $state === 'overclock' || $state === 'normal'}
+			<p class="text-xl font-bold">{$state}</p>
+		{:else}
+			<p class="text-xl font-bold">Glyph</p>
+			<img alt="logo" src="logo.png" class="h-8 md:h-12" />
+			<p class="text-xl font-bold">Predict</p>
+		{/if}
 	</div>
 	<div class="navbar-end">
-		<a href="https://github.com/Nigh/svelte-static-pwa-template"
+		<a href="https://github.com/Nigh/glyph-predict-pwa"
 			><button class="btn btn-outline btn-warning btn-xs md:btn-md">GitHub</button></a
 		>
 	</div>
