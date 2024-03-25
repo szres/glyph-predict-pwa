@@ -1,10 +1,10 @@
 
 <div align="center">
 
-![](./static/logo.png)
+<img alt="logo" width="36%" src="./static/logo.png"/>
 
 <div align="center">
-    <img align="center" src="https://capsule-render.vercel.app/api?type=transparent&text=Ingress%20Glyph%20Predict&desc=PWA%20version&descAlign=62&descAlignY=87&fontColor=eeeeee&fontSize=60&animation=fadeIn&height=70"/>
+    <img src="https://capsule-render.vercel.app/api?type=transparent&text=Ingress%20Glyph%20Predict&desc=PWA%20version&descAlign=62&descAlignY=87&fontColor=eeeeee&fontSize=60&animation=fadeIn&height=70"/>
 </div>
 </div>
 
