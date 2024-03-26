@@ -5,11 +5,15 @@
 	import Normal from './normal.svelte';
 
 	import { onMount } from 'svelte';
-	import { writable } from 'svelte/store';
-	let state = writable('home');
+	import { state } from './store.js';
+	const pages = new Map();
+	pages.set('home', Home);
+	pages.set('overclock', Overclock);
+	pages.set('normal', Normal);
+
 	onMount(() => {
 		const storedState = localStorage.getItem('state');
-		state = writable(storedState);
+		state.set(storedState || 'home');
 		state.subscribe((value) => {
 			localStorage.setItem('state', value);
 		});
@@ -17,10 +21,6 @@
 </script>
 
 <Nav {state} />
-{#if $state === 'overclock'}
-	<Overclock />
-{:else if $state === 'normal'}
-	<Normal />
-{:else}
-	<Home {state} />
-{/if}
+<div class="flex flex-col grow">
+	<svelte:component this={pages.get($state)} />
+</div>
