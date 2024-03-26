@@ -11,7 +11,8 @@ export default defineConfig({
 				name: 'Ingress Glyph Predict PWA',
 				short_name: 'IGP',
 				description: 'Ingress Glyph Predict',
-				start_url: '/',
+				scope: '.',
+				start_url: './',
 				background_color: '#000000',
 				theme_color: '#5ac6e6',
 				display: 'fullscreen',
@@ -20,7 +21,7 @@ export default defineConfig({
 						src: 'favicon.png',
 						sizes: '128x128',
 						type: 'image/png',
-						purpose: 'any maskable'
+						purpose: 'any'
 					},
 					{
 						src: 'logo.png',
