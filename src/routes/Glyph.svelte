@@ -17,10 +17,10 @@
 		c: { dx: 0 * glyphK1, dy: +R * glyphK1 },
 		l: { dx: -Math.cos(Math.PI / 6) * R * glyphK1, dy: Math.sin(Math.PI / 6) * R * glyphK1 },
 		b: { dx: -Math.cos(Math.PI / 6) * R * glyphK1, dy: -Math.sin(Math.PI / 6) * R * glyphK1 },
-		f: { dx: 0 * glyphK2, dy: -R * glyphK2 },
+		// f: { dx: 0 * glyphK2, dy: -R * glyphK2 },
 		r: { dx: +Math.cos(Math.PI / 6) * R * glyphK2, dy: -Math.sin(Math.PI / 6) * R * glyphK2 },
 		j: { dx: +Math.cos(Math.PI / 6) * R * glyphK2, dy: Math.sin(Math.PI / 6) * R * glyphK2 },
-		p: { dx: 0 * glyphK2, dy: +R * glyphK2 },
+		// p: { dx: 0 * glyphK2, dy: +R * glyphK2 },
 		h: { dx: -Math.cos(Math.PI / 6) * R * glyphK2, dy: Math.sin(Math.PI / 6) * R * glyphK2 },
 		t: { dx: -Math.cos(Math.PI / 6) * R * glyphK2, dy: -Math.sin(Math.PI / 6) * R * glyphK2 },
 		a: { dx: 0, dy: 0 }
