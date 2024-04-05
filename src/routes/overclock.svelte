@@ -10,4 +10,7 @@
 		<li data-content="?" class="step step-neutral"><Glyph glyph="lhtmrjk" />SHAPERS</li>
 		<li data-content="?" class="step step-neutral"><Glyph glyph="htajra" />LIE</li>
 	</ul>
+	<div>
+		<Glyph width="500" height="500" drawable="true" />
+	</div>
 </div>
