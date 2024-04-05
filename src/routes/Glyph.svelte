@@ -1,15 +1,20 @@
 <script>
 	import { onMount } from 'svelte';
+	import { GlyphEffect } from './glyphParticle.js';
 	export let width = 64;
 	export let height = 64;
 	export let background = '#0000';
-	export let glyph = 'bmdkcl-';
+	export let glyph = '';
+	export let drawable = false;
 
 	let cx = width / 2;
 	let cy = height / 2;
 	let R = height / 2 - 2;
-	const glyphK1 = 0.76;
-	const glyphK2 = 0.38;
+	let lineWidth = Math.log(width * 0.04) / 0.618;
+
+	const glyphK = 0.38;
+	const glyphK1 = glyphK * 2;
+	const glyphK2 = glyphK;
 	const glyphPoints = {
 		m: { dx: 0 * glyphK1, dy: -R * glyphK1 },
 		d: { dx: +Math.cos(Math.PI / 6) * R * glyphK1, dy: -Math.sin(Math.PI / 6) * R * glyphK1 },
@@ -27,11 +32,30 @@
 	};
 
 	let canvas;
-	let context;
+	let ctx_render;
+	let touchTop, touchLeft;
+	let layer_bg = document.createElement('canvas');
+	let ctx_bg = layer_bg.getContext('2d');
+	let layer_draw = document.createElement('canvas');
+	let ctx_draw = layer_draw.getContext('2d');
+	let layer_effect = document.createElement('canvas');
+	let effect;
+	let effect_update;
+	let glyph_render;
 	onMount(() => {
-		context = canvas.getContext('2d');
-		context.lineWidth = 2;
-		context.strokeStyle = '#47df';
+		if (width < 32 || height < 32) {
+			console.assert(false, 'Glyph must be at least 32x32');
+		}
+		ctx_render = canvas.getContext('2d');
+		layer_bg.width = width;
+		layer_bg.height = height;
+		layer_draw.width = width;
+		layer_draw.height = height;
+		layer_effect.width = width;
+		layer_effect.height = height;
+
+		ctx_bg.lineWidth = 2;
+		ctx_bg.strokeStyle = '#47df';
 		let hexagon = [
 			{ dx: 0, dy: -R },
 			{ dx: +Math.cos(Math.PI / 6) * R, dy: -Math.sin(Math.PI / 6) * R },
@@ -40,36 +64,190 @@
 			{ dx: -Math.cos(Math.PI / 6) * R, dy: Math.sin(Math.PI / 6) * R },
 			{ dx: -Math.cos(Math.PI / 6) * R, dy: -Math.sin(Math.PI / 6) * R }
 		];
-		context.beginPath();
+		ctx_bg.beginPath();
 		hexagon.forEach((point) => {
-			context.lineTo(cx + point.dx, cy + point.dy);
+			ctx_bg.lineTo(cx + point.dx, cy + point.dy);
 		});
-		context.closePath();
-		context.stroke();
+		ctx_bg.closePath();
+		ctx_bg.stroke();
 
-		context.strokeStyle = '#ccc7';
-		context.lineWidth = 1;
+		ctx_bg.strokeStyle = '#ccc7';
+		ctx_bg.lineWidth = 1;
 		for (const key in glyphPoints) {
-			context.beginPath();
-			context.arc(cx + glyphPoints[key].dx, cy + glyphPoints[key].dy, 1.4, 0, 2 * Math.PI);
-			context.closePath();
-			context.stroke();
+			ctx_bg.beginPath();
+			ctx_bg.arc(cx + glyphPoints[key].dx, cy + glyphPoints[key].dy, lineWidth, 0, 2 * Math.PI);
+			ctx_bg.closePath();
+			ctx_bg.stroke();
 		}
+		if (!drawable) {
+			ctx_bg.strokeStyle = '#eee';
+			ctx_bg.lineWidth = 2;
+			ctx_bg.beginPath();
+			glyph.split('').forEach((g) => {
+				if (glyphPoints[g]) {
+					ctx_bg.lineTo(cx + glyphPoints[g].dx, cy + glyphPoints[g].dy);
+				} else {
+					if (g === '-') {
+						ctx_bg.closePath();
+					}
+				}
+			});
+			ctx_bg.stroke();
+		} else {
+			const { top, left } = canvas.getBoundingClientRect();
+			touchTop = top;
+			touchLeft = left;
+			effect = new GlyphEffect(layer_effect);
+			effect_update = effect.updater();
+			glyph_render = glyphDrawRender();
+		}
+		ctx_bg.save();
+		ctx_render.drawImage(layer_bg, 0, 0, width, height);
+		return () => {
+			if (glyph_render) {
+				glyph_render.stop();
+			}
+		};
+	});
 
-		context.strokeStyle = '#eee';
-		context.lineWidth = 2;
-		context.beginPath();
-		glyph.split('').forEach((g) => {
-			if (glyphPoints[g]) {
-				context.lineTo(cx + glyphPoints[g].dx, cy + glyphPoints[g].dy);
-			} else {
-				if (g === '-') {
-					context.closePath();
+	let isDrawing = false;
+	let currentPointOn = '';
+	let sequenceDrawed = '';
+	let lastCheckStep = {};
+	let drawHue = 0;
+	let drawWidth = 0;
+	let drawPos = { x: 0, y: 0 };
+	const distance = (x1, y1, x2, y2) => Math.sqrt((x1 - x2) ** 2 + (y1 - y2) ** 2);
+	const drawCheck = ({ offsetX: x, offsetY: y }) => {
+		for (const key in glyphPoints) {
+			if (key === currentPointOn) continue;
+			const { dx, dy } = glyphPoints[key];
+			if (distance(x, y, cx + dx, cy + dy) < (R * glyphK) / 3) {
+				if (glyphPoints[currentPointOn]) {
+					const sx = cx + glyphPoints[currentPointOn].dx;
+					const sy = cy + glyphPoints[currentPointOn].dy;
+					drawHue += 7;
+					if (drawHue > 360) drawHue = 0;
+					drawWidth -= 0.3;
+					if (drawWidth < 2) drawWidth = 2;
+					ctx_draw.strokeStyle = `hsla(` + `${drawHue}` + `,90%,72%,60%)`;
+					ctx_draw.lineWidth = drawWidth;
+					ctx_draw.beginPath();
+					ctx_draw.moveTo(sx, sy);
+					ctx_draw.lineTo(cx + dx, cy + dy);
+					ctx_draw.closePath();
+					ctx_draw.stroke();
+				}
+				if (!sequenceDrawed.includes(key)) {
+					ctx_draw.fillStyle = `hsla(` + `${drawHue}` + `,90%,72%,100%)`;
+					ctx_draw.arc(cx + dx, cy + dy, drawWidth * 0.6, 0, 2 * Math.PI);
+					ctx_draw.fill();
+				}
+				currentPointOn = key;
+				sequenceDrawed += key;
+				if (sequenceDrawed.length >= 32) drawEnd();
+				break;
+			}
+		}
+	};
+	const glyphDrawRender = () => {
+		const fpsInterval = 1000 / 60;
+		let then = Date.now();
+		let stoped = true;
+
+		const render = () => {
+			if (stoped) return;
+			const now = Date.now();
+			const delta = now - then;
+			if (delta > fpsInterval) {
+				then = now - (delta % fpsInterval);
+				if (isDrawing) {
+					effect.spawn(drawPos.x, drawPos.y);
+				}
+				if (effect_update() > 0) {
+					ctx_render.reset();
+					ctx_render.drawImage(layer_bg, 0, 0, width, height);
+					ctx_render.drawImage(layer_draw, 0, 0, width, height);
+					ctx_render.drawImage(layer_effect, 0, 0, width, height);
+				} else {
+					stoped = true;
 				}
 			}
-		});
-		context.stroke();
-	});
+			requestAnimationFrame(render);
+		};
+		const start = () => {
+			if (!stoped) return;
+			then = Date.now();
+			stoped = false;
+			requestAnimationFrame(render);
+		};
+		const stop = () => {
+			stoped = true;
+		};
+		return { start, stop };
+	};
+	const drawStart = ({ offsetX: x, offsetY: y }) => {
+		isDrawing = true;
+		lastCheckStep = { x, y };
+		drawPos = { x, y };
+		sequenceDrawed = '';
+		currentPointOn = '';
+		drawHue = 0;
+		drawWidth = lineWidth * 2;
+		ctx_draw.reset();
+		ctx_draw.strokeStyle = `hsla(0,90%,72%,80%)`;
+		ctx_draw.lineWidth = drawWidth;
+		ctx_draw.fillStyle = ctx_draw.strokeStyle;
+		drawCheck({ offsetX: x, offsetY: y });
+		glyph_render.start();
+	};
+	const drawEnd = () => {
+		isDrawing = false;
+	};
+	const drawMove = ({ offsetX: x1, offsetY: y1 }) => {
+		if (!isDrawing) return;
+		const { x, y } = lastCheckStep;
+		drawPos = { x: x1, y: y1 };
+		if (distance(x, y, x1, y1) >= (R * glyphK) / 6) {
+			lastCheckStep = { x: x1, y: y1 };
+			drawCheck({ offsetX: x1, offsetY: y1 });
+			for (let index = 0; index < 2; index++) {
+				effect.spawn(x1, y1, 'slow');
+			}
+		}
+	};
 </script>
 
-<canvas {width} {height} style:background bind:this={canvas} />
+<canvas
+	class="self-center"
+	{width}
+	{height}
+	style:background
+	bind:this={canvas}
+	on:mousedown={drawStart}
+	on:touchstart={(e) => {
+		const { clientX, clientY } = e.touches[0];
+		drawStart({
+			offsetX: clientX - touchLeft,
+			offsetY: clientY - touchTop
+		});
+	}}
+	on:mouseup={drawEnd}
+	on:touchend={drawEnd}
+	on:mouseleave={drawEnd}
+	on:mousemove={drawMove}
+	on:touchmove={(e) => {
+		const { clientX, clientY } = e.touches[0];
+		drawMove({
+			offsetX: clientX - touchLeft,
+			offsetY: clientY - touchTop
+		});
+	}}
+/>
+{#if drawable}
+	<div>
+		<span>
+			{sequenceDrawed}
+		</span>
+	</div>
+{/if}
