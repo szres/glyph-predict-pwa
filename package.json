@@ -6,11 +6,18 @@
 		"dev": "vite dev",
 		"build": "vite build",
 		"preview": "vite preview",
-		"lint": "prettier --check . && eslint .",
-		"format": "prettier --write .",
+		"lint": "eslint .",
 		"prepare": "husky",
-		"pre-commit": "yarn lint",
+		"pre-commit": "lint-staged",
 		"commitlint": "commitlint --edit"
+	},
+	"lint-staged": {
+		"*": [
+			"prettier --write"
+		],
+		"*.{svelte,js,css,html}": [
+			"eslint --fix"
+		]
 	},
 	"devDependencies": {
 		"@commitlint/cli": "^19.2.1",
@@ -26,6 +33,7 @@
 		"eslint-config-prettier": "^9.1.0",
 		"eslint-plugin-svelte": "^2.35.1",
 		"husky": "^9.0.11",
+		"lint-staged": "^15.2.2",
 		"postcss": "^8.4.38",
 		"prettier": "^3.1.1",
 		"prettier-plugin-svelte": "^3.1.2",
