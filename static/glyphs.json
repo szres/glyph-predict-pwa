@@ -1,42 +1,538 @@
 [
 	{
-		"name": "ABANDON",
+		"name": ["Abandon"],
 		"glyph": "drahlc"
 	},
 	{
-		"name": "ACCEPT",
+		"name": ["Accept", "Open"],
 		"glyph": "hjch"
 	},
 	{
-		"name": "ADAPT",
+		"name": ["Adapt"],
 		"glyph": "bhaj"
 	},
 	{
-		"name": "ADVANCE",
+		"name": ["Advance"],
 		"glyph": "mtl"
 	},
 	{
-		"name": "AFTER",
+		"name": ["After"],
 		"glyph": "drajkd"
 	},
 	{
-		"name": "AGAIN",
+		"name": ["Again", "Repeat"],
 		"glyph": "ltharj"
 	},
 	{
-		"name": "ALL",
+		"name": ["All"],
 		"glyph": "mblckdm"
 	},
 	{
-		"name": "ANSWER",
+		"name": ["Answer"],
 		"glyph": "trja"
 	},
 	{
-		"name": "ATTACK",
+		"name": ["Attack", "War"],
 		"glyph": "ltmrk"
 	},
 	{
-		"name": "AVOID",
+		"name": ["Avoid"],
 		"glyph": "bmrdj"
+	},
+	{
+		"name": ["Balance", "Perfection"],
+		"glyph": "mahlckja"
+	},
+	{
+		"name": ["Barrier"],
+		"glyph": "majk"
+	},
+	{
+		"name": ["Before"],
+		"glyph": "btahlb"
+	},
+	{
+		"name": ["Begin"],
+		"glyph": "mhcj"
+	},
+	{
+		"name": ["Being", "human"],
+		"glyph": "trjcht"
+	},
+	{
+		"name": ["Body"],
+		"glyph": "trat"
+	},
+	{
+		"name": ["Breathe", "live"],
+		"glyph": "btard"
+	},
+	{
+		"name": ["Capture"],
+		"glyph": "djahlc"
+	},
+	{
+		"name": ["Change"],
+		"glyph": "hacj"
+	},
+	{
+		"name": ["Chaos"],
+		"glyph": "chadmbl"
+	},
+	{
+		"name": ["Civilization"],
+		"glyph": "bthjrd"
+	},
+	{
+		"name": ["Clear"],
+		"glyph": "mac"
+	},
+	{
+		"name": ["Clear All"],
+		"glyph": "mackdmblc"
+	},
+	{
+		"name": ["Collective", "Shapers"],
+		"glyph": "lhtmrjk"
+	},
+	{
+		"name": ["Complex"],
+		"glyph": "rtah"
+	},
+	{
+		"name": ["Conflict"],
+		"glyph": "lthjrk"
+	},
+	{
+		"name": ["Consequence"],
+		"glyph": "bthjk"
+	},
+	{
+		"name": ["Contemplate"],
+		"glyph": "rathckdm"
+	},
+	{
+		"name": ["Courage"],
+		"glyph": "lthj"
+	},
+	{
+		"name": ["Create"],
+		"glyph": "lhard"
+	},
+	{
+		"name": ["Creativity", "Idea", "Thought"],
+		"glyph": "hlbtajkdr"
+	},
+	{
+		"name": ["Danger"],
+		"glyph": "catm"
+	},
+	{
+		"name": ["Data"],
+		"glyph": "mrahc"
+	},
+	{
+		"name": ["Defend"],
+		"glyph": "bhcjd"
+	},
+	{
+		"name": ["Destination"],
+		"glyph": "dkc"
+	},
+	{
+		"name": ["Destiny"],
+		"glyph": "tarjhc"
+	},
+	{
+		"name": ["Destroy"],
+		"glyph": "btajk"
+	},
+	{
+		"name": ["Deteriorate"],
+		"glyph": "tahl"
+	},
+	{
+		"name": ["Death", "Die"],
+		"glyph": "lhajk"
+	},
+	{
+		"name": ["Difficult"],
+		"glyph": "drjah"
+	},
+	{
+		"name": ["Discover"],
+		"glyph": "lckd"
+	},
+	{
+		"name": ["Distance", "Outside"],
+		"glyph": "lbm"
+	},
+	{
+		"name": ["Easy"],
+		"glyph": "rahc"
+	},
+	{
+		"name": ["End"],
+		"glyph": "macjdm"
+	},
+	{
+		"name": ["Enlightened", "Enlightenment"],
+		"glyph": "tratmdkc"
+	},
+	{
+		"name": ["Equal"],
+		"glyph": "htrj"
+	},
+	{
+		"name": ["Escape"],
+		"glyph": "htrdm"
+	},
+	{
+		"name": ["Evolution", "Progress", "Success"],
+		"glyph": "math"
+	},
+	{
+		"name": ["Failure"],
+		"glyph": "marj"
+	},
+	{
+		"name": ["Fear"],
+		"glyph": "trjd"
+	},
+	{
+		"name": ["Field"],
+		"glyph": "bdjchb"
+	},
+	{
+		"name": ["Follow"],
+		"glyph": "mrdk"
+	},
+	{
+		"name": ["Forget"],
+		"glyph": "hl"
+	},
+	{
+		"name": ["Future"],
+		"glyph": "drjk"
+	},
+	{
+		"name": ["Gain"],
+		"glyph": "bh"
+	},
+	{
+		"name": ["Grow"],
+		"glyph": "lth"
+	},
+	{
+		"name": ["Harm"],
+		"glyph": "kjatmra"
+	},
+	{
+		"name": ["Harmony", "Peace"],
+		"glyph": "mtajcharm"
+	},
+	{
+		"name": ["Have"],
+		"glyph": "jahc"
+	},
+	{
+		"name": ["Help"],
+		"glyph": "btahj"
+	},
+	{
+		"name": ["Hide"],
+		"glyph": "trdjh"
+	},
+	{
+		"name": ["I", "Me"],
+		"glyph": "trct"
+	},
+	{
+		"name": ["Ignore"],
+		"glyph": "jk"
+	},
+	{
+		"name": ["Imperfect"],
+		"glyph": "atharh"
+	},
+	{
+		"name": ["Improve"],
+		"glyph": "draj"
+	},
+	{
+		"name": ["Impure"],
+		"glyph": "catha"
+	},
+	{
+		"name": ["Individual", "Self"],
+		"glyph": "lck"
+	},
+	{
+		"name": ["Inside", "Not"],
+		"glyph": "trj"
+	},
+	{
+		"name": ["Intelligence"],
+		"glyph": "lhtard"
+	},
+	{
+		"name": ["Interrupt"],
+		"glyph": "matblhac"
+	},
+	{
+		"name": ["Journey"],
+		"glyph": "dratblc"
+	},
+	{
+		"name": ["Key"],
+		"glyph": "catharja"
+	},
+	{
+		"name": ["Knowledge"],
+		"glyph": "tarct"
+	},
+	{
+		"name": ["Lead"],
+		"glyph": "mblhc"
+	},
+	{
+		"name": ["Legacy"],
+		"glyph": "lhtbmdrjk"
+	},
+	{
+		"name": ["Less"],
+		"glyph": "tar"
+	},
+	{
+		"name": ["Liberate"],
+		"glyph": "ltardm"
+	},
+	{
+		"name": ["Lie"],
+		"glyph": "htajra"
+	},
+	{
+		"name": ["Link"],
+		"glyph": "bd"
+	},
+	{
+		"name": ["Live Again", "Reincarnate"],
+		"glyph": "lthard"
+	},
+	{
+		"name": ["Lose"],
+		"glyph": "dj"
+	},
+	{
+		"name": ["Message"],
+		"glyph": "djatl"
+	},
+	{
+		"name": ["Mind"],
+		"glyph": "tacht"
+	},
+	{
+		"name": ["More"],
+		"glyph": "haj"
+	},
+	{
+		"name": ["Mystery"],
+		"glyph": "htrmtb"
+	},
+	{
+		"name": ["Nature"],
+		"glyph": "lhtrjk"
+	},
+	{
+		"name": ["New"],
+		"glyph": "rjk"
+	},
+	{
+		"name": ["N'Zeer"],
+		"glyph": "camtarm"
+	},
+	{
+		"name": ["Nemesis"],
+		"glyph": "bdrahlkjatb"
+	},
+	{
+		"name": ["Nourish"],
+		"glyph": "ahlca"
+	},
+	{
+		"name": ["Now", "Present"],
+		"glyph": "thjr"
+	},
+	{
+		"name": ["Old"],
+		"glyph": "bth"
+	},
+	{
+		"name": ["Open All"],
+		"glyph": "chjckdmblc"
+	},
+	{
+		"name": ["Osiris"],
+		"glyph": "tratmrklt"
+	},
+	{
+		"name": ["Past"],
+		"glyph": "bthl"
+	},
+	{
+		"name": ["Path"],
+		"glyph": "mahl"
+	},
+	{
+		"name": ["Perspective"],
+		"glyph": "lharmtajk"
+	},
+	{
+		"name": ["Portal"],
+		"glyph": "btrdkjhlb"
+	},
+	{
+		"name": ["Potential"],
+		"glyph": "majkd"
+	},
+	{
+		"name": ["Presence"],
+		"glyph": "htarjhcj"
+	},
+	{
+		"name": ["Pure"],
+		"glyph": "majra"
+	},
+	{
+		"name": ["Pursue"],
+		"glyph": "btmr"
+	},
+	{
+		"name": ["Question"],
+		"glyph": "htrm"
+	},
+	{
+		"name": ["React"],
+		"glyph": "rtajk"
+	},
+	{
+		"name": ["Rebel"],
+		"glyph": "bhardk"
+	},
+	{
+		"name": ["Recharge", "Repair"],
+		"glyph": "mbtam"
+	},
+	{
+		"name": ["Resistance", "Struggle"],
+		"glyph": "hcamtr"
+	},
+	{
+		"name": ["Restraint"],
+		"glyph": "btajkc"
+	},
+	{
+		"name": ["Retreat"],
+		"glyph": "mrk"
+	},
+	{
+		"name": ["Safety"],
+		"glyph": "ltrk"
+	},
+	{
+		"name": ["Save"],
+		"glyph": "hajd"
+	},
+	{
+		"name": ["Search"],
+		"glyph": "arthj"
+	},
+	{
+		"name": ["See"],
+		"glyph": "mt"
+	},
+	{
+		"name": ["Separate"],
+		"glyph": "btharjk"
+	},
+	{
+		"name": ["Share"],
+		"glyph": "kjhlc"
+	},
+	{
+		"name": ["Shield"],
+		"glyph": "mthcjrm"
+	},
+	{
+		"name": ["Simple"],
+		"glyph": "hj"
+	},
+	{
+		"name": ["Soul"],
+		"glyph": "racjr"
+	},
+	{
+		"name": ["Stability", "Stay"],
+		"glyph": "lhjk"
+	},
+	{
+		"name": ["Star"],
+		"glyph": "macatbtajkjardrahlha"
+	},
+	{
+		"name": ["Strong"],
+		"glyph": "thjrt"
+	},
+	{
+		"name": ["Technology"],
+		"glyph": "drahtajk"
+	},
+	{
+		"name": ["Them"],
+		"glyph": "mhj"
+	},
+	{
+		"name": ["Together"],
+		"glyph": "lharta"
+	},
+	{
+		"name": ["Truth"],
+		"glyph": "htajrah"
+	},
+	{
+		"name": ["Unbounded"],
+		"glyph": "arthjdmblck"
+	},
+	{
+		"name": ["Us", "We"],
+		"glyph": "trc"
+	},
+	{
+		"name": ["Use"],
+		"glyph": "ajd"
+	},
+	{
+		"name": ["Victory"],
+		"glyph": "mtcrm"
+	},
+	{
+		"name": ["Want"],
+		"glyph": "lhcj"
+	},
+	{
+		"name": ["Weak"],
+		"glyph": "btrj"
+	},
+	{
+		"name": ["Worth"],
+		"glyph": "bhajd"
+	},
+	{
+		"name": ["XM"],
+		"glyph": "ahtrja"
+	},
+	{
+		"name": ["You", "Your"],
+		"glyph": "mhjm"
 	}
 ]
