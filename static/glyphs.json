@@ -1,0 +1,42 @@
+[
+	{
+		"name": "ABANDON",
+		"glyph": "drahlc"
+	},
+	{
+		"name": "ACCEPT",
+		"glyph": "hjch"
+	},
+	{
+		"name": "ADAPT",
+		"glyph": "bhaj"
+	},
+	{
+		"name": "ADVANCE",
+		"glyph": "mtl"
+	},
+	{
+		"name": "AFTER",
+		"glyph": "drajkd"
+	},
+	{
+		"name": "AGAIN",
+		"glyph": "ltharj"
+	},
+	{
+		"name": "ALL",
+		"glyph": "mblckdm"
+	},
+	{
+		"name": "ANSWER",
+		"glyph": "trja"
+	},
+	{
+		"name": "ATTACK",
+		"glyph": "ltmrk"
+	},
+	{
+		"name": "AVOID",
+		"glyph": "bmrdj"
+	}
+]
