@@ -2,7 +2,7 @@
 	import Glyph from './Glyph.svelte';
 	export let guess = [];
 	let validGuess;
-	$: validGuess = guess.filter((g) => g.score > 0).slice(0, 5);
+	$: validGuess = guess.filter((g) => g.score > 0).slice(0, 1);
 	$: if (validGuess.length == 0) {
 		validGuess.push({ points: '', name: '-', score: 0 });
 	}
