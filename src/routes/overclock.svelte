@@ -1,5 +1,8 @@
 <script>
 	import Glyph from './Glyph.svelte';
+	import GlyphGuess from './GlyphGuess.svelte';
+
+	let guess = [];
 </script>
 
 <div class="grid grid-flow-row gap-4 h-max m-4 justify-center content-center">
@@ -10,7 +13,8 @@
 		<li data-content="?" class="step step-neutral"><Glyph glyph="lhtmrjk" />SHAPERS</li>
 		<li data-content="?" class="step step-neutral"><Glyph glyph="htajra" />LIE</li>
 	</ul>
+	<GlyphGuess bind:guess />
 	<div>
-		<Glyph width="500" height="500" drawable="true" />
+		<Glyph width="500" height="500" drawable="true" bind:guess />
 	</div>
 </div>
