@@ -71,7 +71,7 @@
 					score--;
 				}
 			});
-			score /= segments.length;
+			score /= glyphJson[key].segments.length;
 			guessed.push({ name: glyphJson[key].name, score, points: glyphJson[key].glyph });
 		}
 		guessed.sort((a, b) => b.score - a.score);
