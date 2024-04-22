@@ -1,6 +1,5 @@
 <script>
-	import { onMount } from 'svelte';
-	import { beforeUpdate } from 'svelte';
+	import { onMount, beforeUpdate, afterUpdate } from 'svelte';
 	import { GlyphEffect } from './glyphParticle.js';
 	import { createEventDispatcher } from 'svelte';
 	const dispatch = createEventDispatcher();
@@ -13,15 +12,21 @@
 	export let drawable = false;
 	export let guess = { points: '', name: '-', score: 0 };
 
-	let cx = width / 2;
-	let cy = height / 2;
-	let R = height / 2 - 2;
-	let lineWidth = Math.log(width * 0.04) / 0.618;
+	let cx;
+	let cy;
+	let R;
+	let lineWidth;
+
+	$: cx = width / 2;
+	$: cy = height / 2;
+	$: R = height / 2 - 2;
+	$: lineWidth = Math.log(width * 0.04) / 0.618;
 
 	const glyphK = 0.38;
 	const glyphK1 = glyphK * 2;
 	const glyphK2 = glyphK;
-	const glyphPoints = {
+	let glyphPoints;
+	$: glyphPoints = {
 		m: { dx: 0 * glyphK1, dy: -R * glyphK1 },
 		d: { dx: +Math.cos(Math.PI / 6) * R * glyphK1, dy: -Math.sin(Math.PI / 6) * R * glyphK1 },
 		k: { dx: +Math.cos(Math.PI / 6) * R * glyphK1, dy: Math.sin(Math.PI / 6) * R * glyphK1 },
@@ -116,7 +121,8 @@
 	};
 
 	let ready = false;
-	beforeUpdate(() => {
+	beforeUpdate(() => {});
+	afterUpdate(() => {
 		if (!ready || drawable) {
 			return;
 		}
@@ -178,6 +184,8 @@
 			effect = new GlyphEffect(layer_effect);
 			effect_update = effect.updater();
 			glyph_render = glyphDrawRender();
+		} else {
+			drawGlyph(glyph);
 		}
 		ready = true;
 		return () => {
@@ -298,13 +306,15 @@
 		});
 	};
 	const drawEnd = () => {
-		isDrawing = false;
-		if (guess.score > 0) {
-			dispatch('newResult', {
-				result: guess
-			});
+		if (isDrawing) {
+			if (guess.score > 0) {
+				dispatch('newResult', {
+					result: guess
+				});
+			}
+			guess = { points: '', name: '-', score: 0 };
 		}
-		guess = { points: '', name: '-', score: 0 };
+		isDrawing = false;
 	};
 	const drawMove = ({ offsetX: x1, offsetY: y1 }) => {
 		if (!isDrawing) return;
