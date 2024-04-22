@@ -1,11 +1,17 @@
 <script>
 	import { onMount } from 'svelte';
+	import { beforeUpdate } from 'svelte';
 	import { GlyphEffect } from './glyphParticle.js';
+	import { createEventDispatcher } from 'svelte';
+	const dispatch = createEventDispatcher();
+
 	export let width = 64;
 	export let height = 64;
 	export let background = '#0000';
+	export let outlineColor = '#47df';
 	export let glyph = '';
 	export let drawable = false;
+	export let guess = { points: '', name: '-', score: 0 };
 
 	let cx = width / 2;
 	let cy = height / 2;
@@ -30,7 +36,54 @@
 		t: { dx: -Math.cos(Math.PI / 6) * R * glyphK2, dy: -Math.sin(Math.PI / 6) * R * glyphK2 },
 		a: { dx: 0, dy: 0 }
 	};
-
+	const segmentNormalize = (segment) => {
+		segment = segment.toLowerCase().substring(0, 2);
+		let c0 = segment.charAt(0);
+		let c1 = segment.charAt(1);
+		if (c1 > c0) {
+			return segment;
+		} else {
+			return c1 + c0;
+		}
+	};
+	const segmentsFromPoints = (points) => {
+		if (points.length > 1) {
+			let segments = [];
+			for (let index = 0; index < points.length - 1; index++) {
+				segments.push(segmentNormalize(points.substring(index, index + 2)));
+			}
+			return segments;
+		}
+		return [];
+	};
+	let glyphJson = {};
+	const glyphJsonLoad = async () => {
+		let response = await fetch('glyphs.json');
+		glyphJson = await response.json();
+		for (const key in glyphJson) {
+			glyphJson[key].segments = segmentsFromPoints(glyphJson[key].glyph);
+		}
+	};
+	const guessGlyphFromSegments = (segments) => {
+		let guessed = [];
+		for (const key in glyphJson) {
+			let score = 0;
+			segments.forEach((segment) => {
+				if (glyphJson[key].segments.includes(segment)) {
+					score++;
+				} else {
+					score--;
+				}
+			});
+			score /= glyphJson[key].segments.length;
+			guessed.push({ name: glyphJson[key].name, score, points: glyphJson[key].glyph });
+		}
+		guessed.sort((a, b) => b.score - a.score);
+		if (guessed.length > 0 && guessed[0].score > 0) {
+			return guessed[0];
+		}
+		return { name: '-', score: 0, points: '' };
+	};
 	let canvas;
 	let ctx_render;
 	let touchTop, touchLeft;
@@ -42,9 +95,46 @@
 	let effect;
 	let effect_update;
 	let glyph_render;
+	const drawGlyph = (points) => {
+		ctx_draw.reset();
+		ctx_draw.strokeStyle = '#eee';
+		ctx_draw.lineWidth = 2;
+		ctx_draw.beginPath();
+		points.split('').forEach((g) => {
+			if (glyphPoints[g]) {
+				ctx_draw.lineTo(cx + glyphPoints[g].dx, cy + glyphPoints[g].dy);
+			} else {
+				if (g === '-') {
+					ctx_draw.closePath();
+				}
+			}
+		});
+		ctx_draw.stroke();
+		ctx_render.reset();
+		ctx_render.drawImage(layer_bg, 0, 0, width, height);
+		ctx_render.drawImage(layer_draw, 0, 0, width, height);
+	};
+
+	let ready = false;
+	beforeUpdate(() => {
+		if (!ready || drawable) {
+			return;
+		}
+		drawGlyph(glyph);
+	});
 	onMount(() => {
 		if (width < 32 || height < 32) {
 			console.assert(false, 'Glyph must be at least 32x32');
+		}
+		if (drawable) {
+			glyphJsonLoad();
+			canvas.addEventListener('mousedown', drawStart);
+			canvas.addEventListener('touchstart', drawStartOnTouch);
+			canvas.addEventListener('mouseup', drawEnd);
+			canvas.addEventListener('touchend', drawEnd);
+			canvas.addEventListener('mouseleave', drawEnd);
+			canvas.addEventListener('mousemove', drawMove);
+			canvas.addEventListener('touchmove', drawMoveOnTouch);
 		}
 		ctx_render = canvas.getContext('2d');
 		layer_bg.width = width;
@@ -55,7 +145,7 @@
 		layer_effect.height = height;
 
 		ctx_bg.lineWidth = 2;
-		ctx_bg.strokeStyle = '#47df';
+		ctx_bg.strokeStyle = outlineColor;
 		let hexagon = [
 			{ dx: 0, dy: -R },
 			{ dx: +Math.cos(Math.PI / 6) * R, dy: -Math.sin(Math.PI / 6) * R },
@@ -79,21 +169,9 @@
 			ctx_bg.closePath();
 			ctx_bg.stroke();
 		}
-		if (!drawable) {
-			ctx_bg.strokeStyle = '#eee';
-			ctx_bg.lineWidth = 2;
-			ctx_bg.beginPath();
-			glyph.split('').forEach((g) => {
-				if (glyphPoints[g]) {
-					ctx_bg.lineTo(cx + glyphPoints[g].dx, cy + glyphPoints[g].dy);
-				} else {
-					if (g === '-') {
-						ctx_bg.closePath();
-					}
-				}
-			});
-			ctx_bg.stroke();
-		} else {
+		ctx_bg.save();
+		if (drawable) {
+			ctx_render.drawImage(layer_bg, 0, 0, width, height);
 			const { top, left } = canvas.getBoundingClientRect();
 			touchTop = top;
 			touchLeft = left;
@@ -101,8 +179,7 @@
 			effect_update = effect.updater();
 			glyph_render = glyphDrawRender();
 		}
-		ctx_bg.save();
-		ctx_render.drawImage(layer_bg, 0, 0, width, height);
+		ready = true;
 		return () => {
 			if (glyph_render) {
 				glyph_render.stop();
@@ -112,7 +189,8 @@
 
 	let isDrawing = false;
 	let currentPointOn = '';
-	let sequenceDrawed = '';
+	let pointDrawed = '';
+	let segmentsDrawed = [];
 	let lastCheckStep = {};
 	let drawHue = 0;
 	let drawWidth = 0;
@@ -138,14 +216,24 @@
 					ctx_draw.closePath();
 					ctx_draw.stroke();
 				}
-				if (!sequenceDrawed.includes(key)) {
+				if (!pointDrawed.includes(key)) {
 					ctx_draw.fillStyle = `hsla(` + `${drawHue}` + `,90%,72%,100%)`;
 					ctx_draw.arc(cx + dx, cy + dy, drawWidth * 0.6, 0, 2 * Math.PI);
 					ctx_draw.fill();
 				}
 				currentPointOn = key;
-				sequenceDrawed += key;
-				if (sequenceDrawed.length >= 32) drawEnd();
+				pointDrawed += key;
+				segmentsDrawed = segmentsFromPoints(pointDrawed);
+				if (segmentsDrawed.length >= 1) {
+					let guessNew = guessGlyphFromSegments(segmentsDrawed);
+					if (guessNew.name !== guess.name) {
+						guess = guessNew;
+						dispatch('newGuess', {
+							guess: guess
+						});
+					}
+				}
+				if (pointDrawed.length >= 32) drawEnd();
 				break;
 			}
 		}
@@ -190,7 +278,8 @@
 		isDrawing = true;
 		lastCheckStep = { x, y };
 		drawPos = { x, y };
-		sequenceDrawed = '';
+		pointDrawed = '';
+		segmentsDrawed = [];
 		currentPointOn = '';
 		drawHue = 0;
 		drawWidth = lineWidth * 2;
@@ -201,8 +290,21 @@
 		drawCheck({ offsetX: x, offsetY: y });
 		glyph_render.start();
 	};
+	const drawStartOnTouch = (e) => {
+		const { clientX, clientY } = e.touches[0];
+		drawStart({
+			offsetX: clientX - touchLeft,
+			offsetY: clientY - touchTop
+		});
+	};
 	const drawEnd = () => {
 		isDrawing = false;
+		if (guess.score > 0) {
+			dispatch('newResult', {
+				result: guess
+			});
+		}
+		guess = { points: '', name: '-', score: 0 };
 	};
 	const drawMove = ({ offsetX: x1, offsetY: y1 }) => {
 		if (!isDrawing) return;
@@ -216,38 +318,13 @@
 			}
 		}
 	};
-</script>
-
-<canvas
-	class="self-center"
-	{width}
-	{height}
-	style:background
-	bind:this={canvas}
-	on:mousedown={drawStart}
-	on:touchstart={(e) => {
-		const { clientX, clientY } = e.touches[0];
-		drawStart({
-			offsetX: clientX - touchLeft,
-			offsetY: clientY - touchTop
-		});
-	}}
-	on:mouseup={drawEnd}
-	on:touchend={drawEnd}
-	on:mouseleave={drawEnd}
-	on:mousemove={drawMove}
-	on:touchmove={(e) => {
+	const drawMoveOnTouch = (e) => {
 		const { clientX, clientY } = e.touches[0];
 		drawMove({
 			offsetX: clientX - touchLeft,
 			offsetY: clientY - touchTop
 		});
-	}}
-/>
-{#if drawable}
-	<div>
-		<span>
-			{sequenceDrawed}
-		</span>
-	</div>
-{/if}
+	};
+</script>
+
+<canvas class="self-center" {width} {height} style:background bind:this={canvas} />

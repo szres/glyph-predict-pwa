@@ -90,7 +90,6 @@ export class GlyphEffect {
 			x: -9999,
 			y: -9999
 		};
-		console.log('this.context', this.context);
 	}
 
 	spawn(x, y, type = 'fast') {
@@ -136,11 +135,11 @@ export class GlyphEffect {
 				particle.draw(bufferContext);
 			}
 
-			context.filter = `none`;
+			context.filter = `blur(1px) opacity(75%)`;
 			context.drawImage(buffer, 0, 0);
-			context.filter = `blur(10px)`;
+			context.filter = `blur(11px)`;
 			context.drawImage(buffer, 0, 0);
-			context.filter = 'none';
+			context.drawImage(buffer, 0, 0);
 			return particles.length;
 		};
 		return update;
