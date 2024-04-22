@@ -1,20 +1,42 @@
 <script>
 	import Glyph from './Glyph.svelte';
-	import GlyphGuess from './GlyphGuess.svelte';
-
-	let guess = [];
+	import GlyphDraw from './GlyphDraw.svelte';
+	let predictionDepth = 5;
+	let predictions = [
+		{ name: '', points: '' },
+		{ name: '', points: '' },
+		{ name: '', points: '' },
+		{ name: '', points: '' },
+		{ name: '', points: '' }
+	];
+	const newPrediction = () => {
+		predictions = [];
+		for (let index = 0; index < predictionDepth; index++) {
+			predictions = [...predictions, { name: '', points: '' }];
+		}
+	};
+	const writePrediction = (c) => {
+		for (let index = 0; index < predictionDepth; index++) {
+			if (predictions[index].name === '') {
+				predictions[index] = c;
+				predictions = predictions;
+				return;
+			}
+		}
+		newPrediction();
+		writePrediction(c);
+	};
+	const onNewResult = (e) => {
+		let result = e.detail.result;
+		writePrediction(result);
+	};
 </script>
 
-<div class="grid grid-flow-row gap-4 h-max m-4 justify-center content-center">
-	<ul class="steps">
-		<li data-content="?" class="step step-neutral"><Glyph glyph="bhcjd" />DEFEND</li>
-		<li data-content="?" class="step step-neutral"><Glyph glyph="trjch-" />HUMAN</li>
-		<li data-content="?" class="step step-neutral"><Glyph glyph="bthjrd" />CIVILIZATION</li>
-		<li data-content="?" class="step step-neutral"><Glyph glyph="lhtmrjk" />SHAPERS</li>
-		<li data-content="?" class="step step-neutral"><Glyph glyph="htajra" />LIE</li>
-	</ul>
-	<GlyphGuess bind:guess />
-	<div>
-		<Glyph width="500" height="500" drawable="true" bind:guess />
+<div class="flex flex-col h-max m-4">
+	<div class="flex justify-center mb-4">
+		{#each predictions as prediction}
+			<Glyph glyph={prediction.points} />
+		{/each}
 	</div>
+	<GlyphDraw on:newResult={onNewResult} />
 </div>

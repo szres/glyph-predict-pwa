@@ -2,12 +2,16 @@
 	import { onMount } from 'svelte';
 	import { beforeUpdate } from 'svelte';
 	import { GlyphEffect } from './glyphParticle.js';
+	import { createEventDispatcher } from 'svelte';
+	const dispatch = createEventDispatcher();
+
 	export let width = 64;
 	export let height = 64;
 	export let background = '#0000';
+	export let outlineColor = '#47df';
 	export let glyph = '';
 	export let drawable = false;
-	export let guess = [];
+	export let guess = { points: '', name: '-', score: 0 };
 
 	let cx = width / 2;
 	let cy = height / 2;
@@ -75,7 +79,10 @@
 			guessed.push({ name: glyphJson[key].name, score, points: glyphJson[key].glyph });
 		}
 		guessed.sort((a, b) => b.score - a.score);
-		return guessed;
+		if (guessed.length > 0 && guessed[0].score > 0) {
+			return guessed[0];
+		}
+		return { name: '-', score: 0, points: '' };
 	};
 	let canvas;
 	let ctx_render;
@@ -138,7 +145,7 @@
 		layer_effect.height = height;
 
 		ctx_bg.lineWidth = 2;
-		ctx_bg.strokeStyle = '#47df';
+		ctx_bg.strokeStyle = outlineColor;
 		let hexagon = [
 			{ dx: 0, dy: -R },
 			{ dx: +Math.cos(Math.PI / 6) * R, dy: -Math.sin(Math.PI / 6) * R },
@@ -218,7 +225,13 @@
 				pointDrawed += key;
 				segmentsDrawed = segmentsFromPoints(pointDrawed);
 				if (segmentsDrawed.length >= 1) {
-					guess = guessGlyphFromSegments(segmentsDrawed);
+					let guessNew = guessGlyphFromSegments(segmentsDrawed);
+					if (guessNew.name !== guess.name) {
+						guess = guessNew;
+						dispatch('newGuess', {
+							guess: guess
+						});
+					}
 				}
 				if (pointDrawed.length >= 32) drawEnd();
 				break;
@@ -286,6 +299,12 @@
 	};
 	const drawEnd = () => {
 		isDrawing = false;
+		if (guess.score > 0) {
+			dispatch('newResult', {
+				result: guess
+			});
+		}
+		guess = { points: '', name: '-', score: 0 };
 	};
 	const drawMove = ({ offsetX: x1, offsetY: y1 }) => {
 		if (!isDrawing) return;
@@ -309,10 +328,3 @@
 </script>
 
 <canvas class="self-center" {width} {height} style:background bind:this={canvas} />
-{#if drawable}
-	<div>
-		<span>
-			{pointDrawed}
-		</span>
-	</div>
-{/if}
