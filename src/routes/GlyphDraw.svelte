@@ -22,6 +22,12 @@
 		<span class="text-center">{guess.name}</span>
 	</div>
 </div>
-<div class="flex justify-center">
-	<Glyph {...drawSize} drawable="true" on:newGuess={(e) => (guess = e.detail.guess)} on:newResult />
+<div class="flex flex-col text-center justify-center">
+	<Glyph
+		{...drawSize}
+		drawable="true"
+		on:newGuess={(e) => (guess = e.detail.guess)}
+		on:newResult
+		backgroundColor="#0003"
+	/>
 </div>

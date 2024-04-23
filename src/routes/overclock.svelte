@@ -1,17 +1,15 @@
 <script>
 	import Glyph from './Glyph.svelte';
 	import GlyphDraw from './GlyphDraw.svelte';
-	let predictionDepth = 5;
-	let predictions = [
-		{ name: '', points: '' },
-		{ name: '', points: '' },
-		{ name: '', points: '' },
-		{ name: '', points: '' },
-		{ name: '', points: '' }
-	];
-	const newPrediction = () => {
+	import GlyphSelector from './GlyphSelector.svelte';
+
+	let predictionDepth = 0;
+	let predictions = [];
+
+	$: newPrediction(predictionDepth);
+	const newPrediction = (depth) => {
 		predictions = [];
-		for (let index = 0; index < predictionDepth; index++) {
+		for (let index = 0; index < depth; index++) {
 			predictions = [...predictions, { name: '', points: '' }];
 		}
 	};
@@ -23,7 +21,7 @@
 				return;
 			}
 		}
-		newPrediction();
+		newPrediction(predictionDepth);
 		writePrediction(c);
 	};
 	const onNewResult = (e) => {
@@ -34,9 +32,23 @@
 
 <div class="flex flex-col h-max m-4">
 	<div class="flex justify-center mb-4">
-		{#each predictions as prediction}
-			<Glyph glyph={prediction.points} />
-		{/each}
+		{#if predictionDepth == 0}
+			<GlyphSelector bind:predictionDepth />
+		{:else}
+			<Glyph
+				glyph="atarajaha"
+				clickHandler={() => {
+					predictionDepth = 0;
+				}}
+				outlineColor="#b449"
+				backgroundColor="#b449"
+			/>
+			{#each predictions as prediction}
+				<Glyph glyph={prediction.points} />
+			{/each}
+		{/if}
 	</div>
-	<GlyphDraw on:newResult={onNewResult} />
+	{#if predictionDepth > 0}
+		<GlyphDraw on:newResult={onNewResult} />
+	{/if}
 </div>
