@@ -304,6 +304,7 @@
 			offsetX: clientX - touchLeft,
 			offsetY: clientY - touchTop
 		});
+		e.preventDefault();
 	};
 	const drawEnd = () => {
 		if (isDrawing) {
@@ -334,6 +335,7 @@
 			offsetX: clientX - touchLeft,
 			offsetY: clientY - touchTop
 		});
+		e.preventDefault();
 	};
 </script>
 
