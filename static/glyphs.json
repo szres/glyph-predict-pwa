@@ -1,538 +1,538 @@
 [
 	{
 		"name": ["Abandon"],
-		"glyph": "drahlc"
+		"points": "drahlc"
 	},
 	{
 		"name": ["Accept", "Open"],
-		"glyph": "hjch"
+		"points": "hjch"
 	},
 	{
 		"name": ["Adapt"],
-		"glyph": "bhaj"
+		"points": "bhaj"
 	},
 	{
 		"name": ["Advance"],
-		"glyph": "mtl"
+		"points": "mtl"
 	},
 	{
 		"name": ["After"],
-		"glyph": "drajkd"
+		"points": "drajkd"
 	},
 	{
 		"name": ["Again", "Repeat"],
-		"glyph": "ltharj"
+		"points": "ltharj"
 	},
 	{
 		"name": ["All"],
-		"glyph": "mblckdm"
+		"points": "mblckdm"
 	},
 	{
 		"name": ["Answer"],
-		"glyph": "trja"
+		"points": "trja"
 	},
 	{
 		"name": ["Attack", "War"],
-		"glyph": "ltmrk"
+		"points": "ltmrk"
 	},
 	{
 		"name": ["Avoid"],
-		"glyph": "bmrdj"
+		"points": "bmrdj"
 	},
 	{
 		"name": ["Balance", "Perfection"],
-		"glyph": "mahlckja"
+		"points": "mahlckja"
 	},
 	{
 		"name": ["Barrier"],
-		"glyph": "majk"
+		"points": "majk"
 	},
 	{
 		"name": ["Before"],
-		"glyph": "btahlb"
+		"points": "btahlb"
 	},
 	{
 		"name": ["Begin"],
-		"glyph": "mhcj"
+		"points": "mhcj"
 	},
 	{
-		"name": ["Being", "human"],
-		"glyph": "trjcht"
+		"name": ["Being", "Human"],
+		"points": "trjcht"
 	},
 	{
 		"name": ["Body"],
-		"glyph": "trat"
+		"points": "trat"
 	},
 	{
-		"name": ["Breathe", "live"],
-		"glyph": "btard"
+		"name": ["Breathe", "Live"],
+		"points": "btard"
 	},
 	{
 		"name": ["Capture"],
-		"glyph": "djahlc"
+		"points": "djahlc"
 	},
 	{
 		"name": ["Change"],
-		"glyph": "hacj"
+		"points": "hacj"
 	},
 	{
 		"name": ["Chaos"],
-		"glyph": "chadmbl"
+		"points": "chadmbl"
 	},
 	{
 		"name": ["Civilization"],
-		"glyph": "bthjrd"
+		"points": "bthjrd"
 	},
 	{
 		"name": ["Clear"],
-		"glyph": "mac"
+		"points": "mac"
 	},
 	{
 		"name": ["Clear All"],
-		"glyph": "mackdmblc"
+		"points": "mackdmblc"
 	},
 	{
 		"name": ["Collective", "Shapers"],
-		"glyph": "lhtmrjk"
+		"points": "lhtmrjk"
 	},
 	{
 		"name": ["Complex"],
-		"glyph": "rtah"
+		"points": "rtah"
 	},
 	{
 		"name": ["Conflict"],
-		"glyph": "lthjrk"
+		"points": "lthjrk"
 	},
 	{
 		"name": ["Consequence"],
-		"glyph": "bthjk"
+		"points": "bthjk"
 	},
 	{
 		"name": ["Contemplate"],
-		"glyph": "rathckdm"
+		"points": "rathckdm"
 	},
 	{
 		"name": ["Courage"],
-		"glyph": "lthj"
+		"points": "lthj"
 	},
 	{
 		"name": ["Create"],
-		"glyph": "lhard"
+		"points": "lhard"
 	},
 	{
 		"name": ["Creativity", "Idea", "Thought"],
-		"glyph": "hlbtajkdr"
+		"points": "hlbtajkdr"
 	},
 	{
 		"name": ["Danger"],
-		"glyph": "catm"
+		"points": "catm"
 	},
 	{
 		"name": ["Data"],
-		"glyph": "mrahc"
+		"points": "mrahc"
 	},
 	{
 		"name": ["Defend"],
-		"glyph": "bhcjd"
+		"points": "bhcjd"
 	},
 	{
 		"name": ["Destination"],
-		"glyph": "dkc"
+		"points": "dkc"
 	},
 	{
 		"name": ["Destiny"],
-		"glyph": "tarjhc"
+		"points": "tarjhc"
 	},
 	{
 		"name": ["Destroy"],
-		"glyph": "btajk"
+		"points": "btajk"
 	},
 	{
 		"name": ["Deteriorate"],
-		"glyph": "tahl"
+		"points": "tahl"
 	},
 	{
 		"name": ["Death", "Die"],
-		"glyph": "lhajk"
+		"points": "lhajk"
 	},
 	{
 		"name": ["Difficult"],
-		"glyph": "drjah"
+		"points": "drjah"
 	},
 	{
 		"name": ["Discover"],
-		"glyph": "lckd"
+		"points": "lckd"
 	},
 	{
 		"name": ["Distance", "Outside"],
-		"glyph": "lbm"
+		"points": "lbm"
 	},
 	{
 		"name": ["Easy"],
-		"glyph": "rahc"
+		"points": "rahc"
 	},
 	{
 		"name": ["End"],
-		"glyph": "macjdm"
+		"points": "macjdm"
 	},
 	{
 		"name": ["Enlightened", "Enlightenment"],
-		"glyph": "tratmdkc"
+		"points": "tratmdkc"
 	},
 	{
 		"name": ["Equal"],
-		"glyph": "htrj"
+		"points": "htrj"
 	},
 	{
 		"name": ["Escape"],
-		"glyph": "htrdm"
+		"points": "htrdm"
 	},
 	{
 		"name": ["Evolution", "Progress", "Success"],
-		"glyph": "math"
+		"points": "math"
 	},
 	{
 		"name": ["Failure"],
-		"glyph": "marj"
+		"points": "marj"
 	},
 	{
 		"name": ["Fear"],
-		"glyph": "trjd"
+		"points": "trjd"
 	},
 	{
 		"name": ["Field"],
-		"glyph": "bdjchb"
+		"points": "bdjchb"
 	},
 	{
 		"name": ["Follow"],
-		"glyph": "mrdk"
+		"points": "mrdk"
 	},
 	{
 		"name": ["Forget"],
-		"glyph": "hl"
+		"points": "hl"
 	},
 	{
 		"name": ["Future"],
-		"glyph": "drjk"
+		"points": "drjk"
 	},
 	{
 		"name": ["Gain"],
-		"glyph": "bh"
+		"points": "bh"
 	},
 	{
 		"name": ["Grow"],
-		"glyph": "lth"
+		"points": "lth"
 	},
 	{
 		"name": ["Harm"],
-		"glyph": "kjatmra"
+		"points": "kjatmra"
 	},
 	{
 		"name": ["Harmony", "Peace"],
-		"glyph": "mtajcharm"
+		"points": "mtajcharm"
 	},
 	{
 		"name": ["Have"],
-		"glyph": "jahc"
+		"points": "jahc"
 	},
 	{
 		"name": ["Help"],
-		"glyph": "btahj"
+		"points": "btahj"
 	},
 	{
 		"name": ["Hide"],
-		"glyph": "trdjh"
+		"points": "trdjh"
 	},
 	{
 		"name": ["I", "Me"],
-		"glyph": "trct"
+		"points": "trct"
 	},
 	{
 		"name": ["Ignore"],
-		"glyph": "jk"
+		"points": "jk"
 	},
 	{
 		"name": ["Imperfect"],
-		"glyph": "atharh"
+		"points": "atharh"
 	},
 	{
 		"name": ["Improve"],
-		"glyph": "draj"
+		"points": "draj"
 	},
 	{
 		"name": ["Impure"],
-		"glyph": "catha"
+		"points": "catha"
 	},
 	{
 		"name": ["Individual", "Self"],
-		"glyph": "lck"
+		"points": "lck"
 	},
 	{
 		"name": ["Inside", "Not"],
-		"glyph": "trj"
+		"points": "trj"
 	},
 	{
 		"name": ["Intelligence"],
-		"glyph": "lhtard"
+		"points": "lhtard"
 	},
 	{
 		"name": ["Interrupt"],
-		"glyph": "matblhac"
+		"points": "matblhac"
 	},
 	{
 		"name": ["Journey"],
-		"glyph": "dratblc"
+		"points": "dratblc"
 	},
 	{
 		"name": ["Key"],
-		"glyph": "catharja"
+		"points": "catharja"
 	},
 	{
 		"name": ["Knowledge"],
-		"glyph": "tarct"
+		"points": "tarct"
 	},
 	{
 		"name": ["Lead"],
-		"glyph": "mblhc"
+		"points": "mblhc"
 	},
 	{
 		"name": ["Legacy"],
-		"glyph": "lhtbmdrjk"
+		"points": "lhtbmdrjk"
 	},
 	{
 		"name": ["Less"],
-		"glyph": "tar"
+		"points": "tar"
 	},
 	{
 		"name": ["Liberate"],
-		"glyph": "ltardm"
+		"points": "ltardm"
 	},
 	{
 		"name": ["Lie"],
-		"glyph": "htajra"
+		"points": "htajra"
 	},
 	{
 		"name": ["Link"],
-		"glyph": "bd"
+		"points": "bd"
 	},
 	{
 		"name": ["Live Again", "Reincarnate"],
-		"glyph": "lthard"
+		"points": "lthard"
 	},
 	{
 		"name": ["Lose"],
-		"glyph": "dj"
+		"points": "dj"
 	},
 	{
 		"name": ["Message"],
-		"glyph": "djatl"
+		"points": "djatl"
 	},
 	{
 		"name": ["Mind"],
-		"glyph": "tacht"
+		"points": "tacht"
 	},
 	{
 		"name": ["More"],
-		"glyph": "haj"
+		"points": "haj"
 	},
 	{
 		"name": ["Mystery"],
-		"glyph": "htrmtb"
+		"points": "htrmtb"
 	},
 	{
 		"name": ["Nature"],
-		"glyph": "lhtrjk"
+		"points": "lhtrjk"
 	},
 	{
 		"name": ["New"],
-		"glyph": "rjk"
+		"points": "rjk"
 	},
 	{
 		"name": ["N'Zeer"],
-		"glyph": "camtarm"
+		"points": "camtarm"
 	},
 	{
 		"name": ["Nemesis"],
-		"glyph": "bdrahlkjatb"
+		"points": "bdrahlkjatb"
 	},
 	{
 		"name": ["Nourish"],
-		"glyph": "ahlca"
+		"points": "ahlca"
 	},
 	{
 		"name": ["Now", "Present"],
-		"glyph": "thjr"
+		"points": "thjr"
 	},
 	{
 		"name": ["Old"],
-		"glyph": "bth"
+		"points": "bth"
 	},
 	{
 		"name": ["Open All"],
-		"glyph": "chjckdmblc"
+		"points": "chjckdmblc"
 	},
 	{
 		"name": ["Osiris"],
-		"glyph": "tratmrklt"
+		"points": "tratmrklt"
 	},
 	{
 		"name": ["Past"],
-		"glyph": "bthl"
+		"points": "bthl"
 	},
 	{
 		"name": ["Path"],
-		"glyph": "mahl"
+		"points": "mahl"
 	},
 	{
 		"name": ["Perspective"],
-		"glyph": "lharmtajk"
+		"points": "lharmtajk"
 	},
 	{
 		"name": ["Portal"],
-		"glyph": "btrdkjhlb"
+		"points": "btrdkjhlb"
 	},
 	{
 		"name": ["Potential"],
-		"glyph": "majkd"
+		"points": "majkd"
 	},
 	{
 		"name": ["Presence"],
-		"glyph": "htarjhcj"
+		"points": "htarjhcj"
 	},
 	{
 		"name": ["Pure"],
-		"glyph": "majra"
+		"points": "majra"
 	},
 	{
 		"name": ["Pursue"],
-		"glyph": "btmr"
+		"points": "btmr"
 	},
 	{
 		"name": ["Question"],
-		"glyph": "htrm"
+		"points": "htrm"
 	},
 	{
 		"name": ["React"],
-		"glyph": "rtajk"
+		"points": "rtajk"
 	},
 	{
 		"name": ["Rebel"],
-		"glyph": "bhardk"
+		"points": "bhardk"
 	},
 	{
 		"name": ["Recharge", "Repair"],
-		"glyph": "mbtam"
+		"points": "mbtam"
 	},
 	{
 		"name": ["Resistance", "Struggle"],
-		"glyph": "hcamtr"
+		"points": "hcamtr"
 	},
 	{
 		"name": ["Restraint"],
-		"glyph": "btajkc"
+		"points": "btajkc"
 	},
 	{
 		"name": ["Retreat"],
-		"glyph": "mrk"
+		"points": "mrk"
 	},
 	{
 		"name": ["Safety"],
-		"glyph": "ltrk"
+		"points": "ltrk"
 	},
 	{
 		"name": ["Save"],
-		"glyph": "hajd"
+		"points": "hajd"
 	},
 	{
 		"name": ["Search"],
-		"glyph": "arthj"
+		"points": "arthj"
 	},
 	{
 		"name": ["See"],
-		"glyph": "mt"
+		"points": "mt"
 	},
 	{
 		"name": ["Separate"],
-		"glyph": "btharjk"
+		"points": "btharjk"
 	},
 	{
 		"name": ["Share"],
-		"glyph": "kjhlc"
+		"points": "kjhlc"
 	},
 	{
 		"name": ["Shield"],
-		"glyph": "mthcjrm"
+		"points": "mthcjrm"
 	},
 	{
 		"name": ["Simple"],
-		"glyph": "hj"
+		"points": "hj"
 	},
 	{
 		"name": ["Soul"],
-		"glyph": "racjr"
+		"points": "racjr"
 	},
 	{
 		"name": ["Stability", "Stay"],
-		"glyph": "lhjk"
+		"points": "lhjk"
 	},
 	{
 		"name": ["Star"],
-		"glyph": "macatbtajkjardrahlha"
+		"points": "macatbtajkjardrahlha"
 	},
 	{
 		"name": ["Strong"],
-		"glyph": "thjrt"
+		"points": "thjrt"
 	},
 	{
 		"name": ["Technology"],
-		"glyph": "drahtajk"
+		"points": "drahtajk"
 	},
 	{
 		"name": ["Them"],
-		"glyph": "mhj"
+		"points": "mhj"
 	},
 	{
 		"name": ["Together"],
-		"glyph": "lharta"
+		"points": "lharta"
 	},
 	{
 		"name": ["Truth"],
-		"glyph": "htajrah"
+		"points": "htajrah"
 	},
 	{
 		"name": ["Unbounded"],
-		"glyph": "arthjdmblck"
+		"points": "arthjdmblck"
 	},
 	{
 		"name": ["Us", "We"],
-		"glyph": "trc"
+		"points": "trc"
 	},
 	{
 		"name": ["Use"],
-		"glyph": "ajd"
+		"points": "ajd"
 	},
 	{
 		"name": ["Victory"],
-		"glyph": "mtcrm"
+		"points": "mtcrm"
 	},
 	{
 		"name": ["Want"],
-		"glyph": "lhcj"
+		"points": "lhcj"
 	},
 	{
 		"name": ["Weak"],
-		"glyph": "btrj"
+		"points": "btrj"
 	},
 	{
 		"name": ["Worth"],
-		"glyph": "bhajd"
+		"points": "bhajd"
 	},
 	{
 		"name": ["XM"],
-		"glyph": "ahtrja"
+		"points": "ahtrja"
 	},
 	{
 		"name": ["You", "Your"],
-		"glyph": "mhjm"
+		"points": "mhjm"
 	}
 ]
