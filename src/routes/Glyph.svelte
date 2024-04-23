@@ -7,10 +7,12 @@
 	export let width = 64;
 	export let height = 64;
 	export let background = '#0000';
+	export let backgroundColor = '#0000';
 	export let outlineColor = '#47df';
 	export let glyph = '';
 	export let drawable = false;
 	export let guess = { points: '', name: '-', score: 0 };
+	export let clickHandler = () => {};
 
 	let cx;
 	let cy;
@@ -141,6 +143,8 @@
 			canvas.addEventListener('mouseleave', drawEnd);
 			canvas.addEventListener('mousemove', drawMove);
 			canvas.addEventListener('touchmove', drawMoveOnTouch);
+		} else {
+			canvas.addEventListener('click', clickHandler);
 		}
 		ctx_render = canvas.getContext('2d');
 		layer_bg.width = width;
@@ -150,9 +154,7 @@
 		layer_effect.width = width;
 		layer_effect.height = height;
 
-		ctx_bg.lineWidth = 2;
-		ctx_bg.strokeStyle = outlineColor;
-		let hexagon = [
+		let hexagonPoint = [
 			{ dx: 0, dy: -R },
 			{ dx: +Math.cos(Math.PI / 6) * R, dy: -Math.sin(Math.PI / 6) * R },
 			{ dx: +Math.cos(Math.PI / 6) * R, dy: Math.sin(Math.PI / 6) * R },
@@ -160,12 +162,18 @@
 			{ dx: -Math.cos(Math.PI / 6) * R, dy: Math.sin(Math.PI / 6) * R },
 			{ dx: -Math.cos(Math.PI / 6) * R, dy: -Math.sin(Math.PI / 6) * R }
 		];
-		ctx_bg.beginPath();
-		hexagon.forEach((point) => {
-			ctx_bg.lineTo(cx + point.dx, cy + point.dy);
+		let hexagon = new Path2D();
+		hexagon.moveTo(cx + 0, cy - R);
+		hexagonPoint.forEach((point) => {
+			hexagon.lineTo(cx + point.dx, cy + point.dy);
 		});
-		ctx_bg.closePath();
-		ctx_bg.stroke();
+		hexagon.closePath();
+
+		ctx_bg.lineWidth = 2;
+		ctx_bg.strokeStyle = outlineColor;
+		ctx_bg.fillStyle = backgroundColor;
+		ctx_bg.fill(hexagon);
+		ctx_bg.stroke(hexagon);
 
 		ctx_bg.strokeStyle = '#ccc7';
 		ctx_bg.lineWidth = 1;
@@ -340,3 +348,10 @@
 </script>
 
 <canvas class="self-center" {width} {height} style:background bind:this={canvas} />
+{#if drawable}
+	<div>
+		<span>
+			{pointDrawed}
+		</span>
+	</div>
+{/if}
