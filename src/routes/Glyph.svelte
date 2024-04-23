@@ -68,7 +68,7 @@
 		let response = await fetch('glyphs.json');
 		glyphJson = await response.json();
 		for (const key in glyphJson) {
-			glyphJson[key].segments = segmentsFromPoints(glyphJson[key].glyph);
+			glyphJson[key].segments = segmentsFromPoints(glyphJson[key].points);
 		}
 	};
 	const guessGlyphFromSegments = (segments) => {
@@ -83,7 +83,7 @@
 				}
 			});
 			score /= glyphJson[key].segments.length;
-			guessed.push({ name: glyphJson[key].name, score, points: glyphJson[key].glyph });
+			guessed.push({ name: glyphJson[key].name, score, points: glyphJson[key].points });
 		}
 		guessed.sort((a, b) => b.score - a.score);
 		if (guessed.length > 0 && guessed[0].score > 0) {
