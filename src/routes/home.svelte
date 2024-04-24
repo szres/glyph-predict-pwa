@@ -1,6 +1,5 @@
 <script>
 	/* eslint no-unused-vars: off */
-	import { state } from './store.js';
 	import LogoOverclock from './logo_overclock.svelte';
 	import LogoNormal from './logo_normal.svelte';
 	import ModeBtn from './mode_btn.svelte';

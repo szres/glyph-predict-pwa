@@ -45,6 +45,7 @@
 		z-index: 1;
 	}
 	.textx {
+		color: rgba(255, 255, 255, 0.01);
 		z-index: 3;
 	}
 </style>
