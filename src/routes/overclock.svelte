@@ -126,6 +126,14 @@
 				outlineColor="#b449"
 				backgroundColor="#b449"
 			/>
+			<Glyph
+				glyph="rthja"
+				clickHandler={() => {
+					newPrediction(predictionDepth);
+				}}
+				outlineColor="#b949"
+				backgroundColor="#b949"
+			/>
 			{#each predictions as prediction}
 				<Glyph glyph={prediction.points} />
 			{/each}
