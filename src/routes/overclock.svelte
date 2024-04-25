@@ -3,12 +3,12 @@
 	import Glyph from './Glyph.svelte';
 	import GlyphInput from './GlyphInput.svelte';
 
-	let ocSequence = [];
+	let sequence = [];
 	let glyphs = {};
 	let guessSequence = [];
 	const ocSequenceLoad = async () => {
 		let response = await fetch('overclock.json');
-		ocSequence = await response.json();
+		sequence = await response.json();
 	};
 	const glyphsLoad = async () => {
 		let response = await fetch('glyphs.json');
@@ -35,7 +35,7 @@
 
 	$: newPrediction(predictionDepth);
 	const newPrediction = (depth) => {
-		guessSequence = [...ocSequence].filter((c) => {
+		guessSequence = [...sequence].filter((c) => {
 			if (c.length !== depth) {
 				return false;
 			}
