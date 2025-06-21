@@ -118,25 +118,31 @@
 				<Glyph glyph={s.points} clickHandler={s.handler} backgroundColor="#44b9" />
 			{/each}
 		{:else}
-			<Glyph
-				glyph="atarajaha"
-				clickHandler={() => {
-					predictionDepth = 0;
-				}}
-				outlineColor="#b449"
-				backgroundColor="#b449"
-			/>
-			<Glyph
-				glyph="rthja"
-				clickHandler={() => {
-					newPrediction(predictionDepth);
-				}}
-				outlineColor="#b949"
-				backgroundColor="#b949"
-			/>
-			{#each predictions as prediction}
-				<Glyph glyph={prediction.points} />
-			{/each}
+			<div class="flex flex-col">
+				<div class="flex flex-row justify-center">
+					<Glyph
+						glyph="atarajaha"
+						clickHandler={() => {
+							predictionDepth = 0;
+						}}
+						outlineColor="#b449"
+						backgroundColor="#b449"
+					/>
+					<Glyph
+						glyph="rthja"
+						clickHandler={() => {
+							newPrediction(predictionDepth);
+						}}
+						outlineColor="#b949"
+						backgroundColor="#b949"
+					/>
+				</div>
+				<div class="flex flex-row">
+					{#each predictions as prediction}
+						<Glyph glyph={prediction.points} />
+					{/each}
+				</div>
+			</div>
 		{/if}
 	</div>
 	<GlyphInput {currentPossibleGuess} on:newResult={onNewResult} />
