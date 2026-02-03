@@ -1,0 +1,546 @@
+[
+	{
+		"name": ["Abandon"],
+		"points": "drahlc"
+	},
+	{
+		"name": ["Accept", "Open"],
+		"points": "hjch"
+	},
+	{
+		"name": ["Adapt"],
+		"points": "bhaj"
+	},
+	{
+		"name": ["Advance"],
+		"points": "mtl"
+	},
+	{
+		"name": ["After"],
+		"points": "drajkd"
+	},
+	{
+		"name": ["Again", "Repeat"],
+		"points": "ltharj"
+	},
+	{
+		"name": ["All"],
+		"points": "mblckdm"
+	},
+	{
+		"name": ["Answer"],
+		"points": "trja"
+	},
+	{
+		"name": ["Attack", "War"],
+		"points": "ltmrk"
+	},
+	{
+		"name": ["Avoid"],
+		"points": "bmrdj"
+	},
+	{
+		"name": ["Balance", "Perfection"],
+		"points": "mahlckja"
+	},
+	{
+		"name": ["Barrier"],
+		"points": "majk"
+	},
+	{
+		"name": ["Before"],
+		"points": "btahlb"
+	},
+	{
+		"name": ["Begin"],
+		"points": "mhcj"
+	},
+	{
+		"name": ["Being", "Human"],
+		"points": "trjcht"
+	},
+	{
+		"name": ["Body"],
+		"points": "trat"
+	},
+	{
+		"name": ["Breathe", "Live"],
+		"points": "btard"
+	},
+	{
+		"name": ["Capture"],
+		"points": "djahlc"
+	},
+	{
+		"name": ["Change"],
+		"points": "hacj"
+	},
+	{
+		"name": ["Chaos"],
+		"points": "chadmbl"
+	},
+	{
+		"name": ["Civilization"],
+		"points": "bthjrd"
+	},
+	{
+		"name": ["Clear"],
+		"points": "mac"
+	},
+	{
+		"name": ["Clear All"],
+		"points": "mackdmblc"
+	},
+	{
+		"name": ["Collective", "Shapers"],
+		"points": "lhtmrjk"
+	},
+	{
+		"name": ["Complex"],
+		"points": "rtah"
+	},
+	{
+		"name": ["Conflict"],
+		"points": "lthjrk"
+	},
+	{
+		"name": ["Consequence"],
+		"points": "bthjk"
+	},
+	{
+		"name": ["Contemplate"],
+		"points": "rathckdm"
+	},
+	{
+		"name": ["Courage"],
+		"points": "lthj"
+	},
+	{
+		"name": ["Create"],
+		"points": "lhard"
+	},
+	{
+		"name": ["Creativity", "Idea", "Thought"],
+		"points": "hlbtajkdr"
+	},
+	{
+		"name": ["Danger"],
+		"points": "catm"
+	},
+	{
+		"name": ["Data"],
+		"points": "mrahc"
+	},
+	{
+		"name": ["Defend"],
+		"points": "bhcjd"
+	},
+	{
+		"name": ["Destination"],
+		"points": "dkc"
+	},
+	{
+		"name": ["Destiny"],
+		"points": "tarjhc"
+	},
+	{
+		"name": ["Destroy"],
+		"points": "btajk"
+	},
+	{
+		"name": ["Deteriorate"],
+		"points": "tahl"
+	},
+	{
+		"name": ["Death", "Die"],
+		"points": "lhajk"
+	},
+	{
+		"name": ["Difficult"],
+		"points": "drjah"
+	},
+	{
+		"name": ["Discover"],
+		"points": "lckd"
+	},
+	{
+		"name": ["Distance", "Outside"],
+		"points": "lbm"
+	},
+	{
+		"name": ["Easy"],
+		"points": "rahc"
+	},
+	{
+		"name": ["End"],
+		"points": "macjdm"
+	},
+	{
+		"name": ["Enlightened", "Enlightenment"],
+		"points": "tratmdkc"
+	},
+	{
+		"name": ["Equal"],
+		"points": "htrj"
+	},
+	{
+		"name": ["Escape"],
+		"points": "htrdm"
+	},
+	{
+		"name": ["Evolution", "Progress", "Success"],
+		"points": "math"
+	},
+	{
+		"name": ["Failure"],
+		"points": "marj"
+	},
+	{
+		"name": ["Fear"],
+		"points": "trjd"
+	},
+	{
+		"name": ["Field"],
+		"points": "bdjchb"
+	},
+	{
+		"name": ["Follow"],
+		"points": "mrdk"
+	},
+	{
+		"name": ["Forget"],
+		"points": "hl"
+	},
+	{
+		"name": ["Future"],
+		"points": "drjk"
+	},
+	{
+		"name": ["Gain"],
+		"points": "bh"
+	},
+	{
+		"name": ["Grow"],
+		"points": "lth"
+	},
+	{
+		"name": ["Harm"],
+		"points": "kjatmra"
+	},
+	{
+		"name": ["Harmony", "Peace"],
+		"points": "mtajcharm"
+	},
+	{
+		"name": ["Have"],
+		"points": "jahc"
+	},
+	{
+		"name": ["Help"],
+		"points": "btahj"
+	},
+	{
+		"name": ["Hide"],
+		"points": "trdjh"
+	},
+	{
+		"name": ["I", "Me"],
+		"points": "trct"
+	},
+	{
+		"name": ["Ignore"],
+		"points": "jk"
+	},
+	{
+		"name": ["Imperfect"],
+		"points": "atharh"
+	},
+	{
+		"name": ["Improve"],
+		"points": "draj"
+	},
+	{
+		"name": ["Impure"],
+		"points": "catha"
+	},
+	{
+		"name": ["Individual", "Self"],
+		"points": "lck"
+	},
+	{
+		"name": ["Inside", "Not"],
+		"points": "trj"
+	},
+	{
+		"name": ["Intelligence"],
+		"points": "lhtard"
+	},
+	{
+		"name": ["Interrupt"],
+		"points": "matblhac"
+	},
+	{
+		"name": ["Journey"],
+		"points": "dratblc"
+	},
+	{
+		"name": ["Key"],
+		"points": "catharja"
+	},
+	{
+		"name": ["Knowledge"],
+		"points": "tarct"
+	},
+	{
+		"name": ["Lead"],
+		"points": "mblhc"
+	},
+	{
+		"name": ["Legacy"],
+		"points": "lhtbmdrjk"
+	},
+	{
+		"name": ["Less"],
+		"points": "tar"
+	},
+	{
+		"name": ["Liberate"],
+		"points": "ltardm"
+	},
+	{
+		"name": ["Lie"],
+		"points": "htajra"
+	},
+	{
+		"name": ["Link"],
+		"points": "bd"
+	},
+	{
+		"name": ["Live Again", "Reincarnate"],
+		"points": "lthard"
+	},
+	{
+		"name": ["Lose"],
+		"points": "dj"
+	},
+	{
+		"name": ["Message"],
+		"points": "djatl"
+	},
+	{
+		"name": ["Mind"],
+		"points": "tacht"
+	},
+	{
+		"name": ["More"],
+		"points": "haj"
+	},
+	{
+		"name": ["Mystery"],
+		"points": "htrmtb"
+	},
+	{
+		"name": ["Nature"],
+		"points": "lhtrjk"
+	},
+	{
+		"name": ["New"],
+		"points": "rjk"
+	},
+	{
+		"name": ["N'Zeer"],
+		"points": "camtarm"
+	},
+	{
+		"name": ["Nemesis"],
+		"points": "bdrahlkjatb"
+	},
+	{
+		"name": ["Nourish"],
+		"points": "ahlca"
+	},
+	{
+		"name": ["Now", "Present"],
+		"points": "thjr"
+	},
+	{
+		"name": ["Old"],
+		"points": "bth"
+	},
+	{
+		"name": ["Open All"],
+		"points": "chjckdmblc"
+	},
+	{
+		"name": ["Osiris"],
+		"points": "tratmrklt"
+	},
+	{
+		"name": ["Past"],
+		"points": "bthl"
+	},
+	{
+		"name": ["Path"],
+		"points": "mahl"
+	},
+	{
+		"name": ["Perspective"],
+		"points": "lharmtajk"
+	},
+	{
+		"name": ["Portal"],
+		"points": "btrdkjhlb"
+	},
+	{
+		"name": ["Potential"],
+		"points": "majkd"
+	},
+	{
+		"name": ["Presence"],
+		"points": "htarjhcj"
+	},
+	{
+		"name": ["Pure"],
+		"points": "majra"
+	},
+	{
+		"name": ["Pursue"],
+		"points": "btmr"
+	},
+	{
+		"name": ["Question"],
+		"points": "htrm"
+	},
+	{
+		"name": ["React"],
+		"points": "rtajk"
+	},
+	{
+		"name": ["Rebel"],
+		"points": "bhardk"
+	},
+	{
+		"name": ["Recharge", "Repair"],
+		"points": "mbtam"
+	},
+	{
+		"name": ["Refresh"],
+		"points": "lbtajkdrahl"
+	},
+	{
+		"name": ["Resistance", "Struggle"],
+		"points": "hcamtr"
+	},
+	{
+		"name": ["Restraint"],
+		"points": "btajkc"
+	},
+	{
+		"name": ["Retreat"],
+		"points": "mrk"
+	},
+	{
+		"name": ["Safety"],
+		"points": "ltrk"
+	},
+	{
+		"name": ["Save"],
+		"points": "hajd"
+	},
+	{
+		"name": ["Search"],
+		"points": "arthj"
+	},
+	{
+		"name": ["See"],
+		"points": "mt"
+	},
+	{
+		"name": ["Separate"],
+		"points": "btharjk"
+	},
+	{
+		"name": ["Share"],
+		"points": "kjhlc"
+	},
+	{
+		"name": ["Shield"],
+		"points": "mthcjrm"
+	},
+	{
+		"name": ["Simple"],
+		"points": "hj"
+	},
+	{
+		"name": ["Soul"],
+		"points": "racjr"
+	},
+	{
+		"name": ["Speed"],
+		"points": "rmtajch"
+	},
+	{
+		"name": ["Stability", "Stay"],
+		"points": "lhjk"
+	},
+	{
+		"name": ["Star"],
+		"points": "macatbtajkjardrahlha"
+	},
+	{
+		"name": ["Strong"],
+		"points": "thjrt"
+	},
+	{
+		"name": ["Technology"],
+		"points": "drahtajk"
+	},
+	{
+		"name": ["Them"],
+		"points": "mhj"
+	},
+	{
+		"name": ["Together"],
+		"points": "lharta"
+	},
+	{
+		"name": ["Truth"],
+		"points": "htajrah"
+	},
+	{
+		"name": ["Unbounded"],
+		"points": "arthjdmblck"
+	},
+	{
+		"name": ["Us", "We"],
+		"points": "trc"
+	},
+	{
+		"name": ["Use"],
+		"points": "ajd"
+	},
+	{
+		"name": ["Victory"],
+		"points": "mtcrm"
+	},
+	{
+		"name": ["Want"],
+		"points": "lhcj"
+	},
+	{
+		"name": ["Weak"],
+		"points": "btrj"
+	},
+	{
+		"name": ["Worth"],
+		"points": "bhajd"
+	},
+	{
+		"name": ["XM"],
+		"points": "ahtrja"
+	},
+	{
+		"name": ["You", "Your"],
+		"points": "mhjm"
+	}
+]
